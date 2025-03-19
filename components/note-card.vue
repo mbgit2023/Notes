@@ -12,9 +12,9 @@ transition-all duration-300 cursor-pointer"
                 >{{ props.title || "New Note"}} </div>
                 
                  <div class="flex flex-row space-x-2">
-                    <img v-if="!editnote" :src="modify" alt="update" class="w-6 cursor-pointer" @click="editable">
-                    <img v-if="editnote" :src="complete" alt="complete" class="w-6 cursor-pointer" @click="completenote">
-                    <img :src="delet" alt="delete" class="w-6 cursor-pointer" @click="trashNote(props.id)">
+                    <img v-if="!editnote" :src="modify" alt="update" class="w-6 cursor-pointer hover:scale-125" @click="editable">
+                    <img v-if="editnote" :src="complete" alt="complete" class="w-6 cursor-pointer hover:scale-125" @click="completenote">
+                    <img :src="delet" alt="delete" class="w-6 cursor-pointer hover:scale-125" @click="trashNote(props.id)">
                 </div>
 
         

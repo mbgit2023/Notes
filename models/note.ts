@@ -1,9 +1,9 @@
 export interface Note {
-    id: number
+    id: Number
     title: String
     content: String | null
     createdAt: String
     updatedAt: String | null
-
+    userId: Number
 }
 

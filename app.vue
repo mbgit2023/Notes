@@ -18,11 +18,16 @@
 
   const isLoggedIn = ref(false)
   const currentUser = ref() 
+  const currentUserId = ref()
+
+  provide('currentUserId', currentUserId)
 
   onMounted(() => {
     currentUser.value = localStorage.getItem('user') 
-    if (currentUser.value)
+    if (currentUser.value) {
       isLoggedIn.value = true
+      currentUserId.value = localStorage.getItem('id')
+    }
   })
 
 </script>

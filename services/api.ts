@@ -1,4 +1,4 @@
-import { GETNOTES, CREATE_NOTE, LOGIN, REGISTER } from './endpoints'
+import { CREATE_NOTE, LOGIN, REGISTER } from './endpoints'
 
 export const login = async (email: String, password: String) => {
   const response = await fetch(LOGIN, {
@@ -25,8 +25,8 @@ export const register = async (email: String, password: String) => {
 }
 
 
-export const getNotes = async () => {
-    const response = await fetch(GETNOTES)
+export const getNotes = async (userId: Number) => {
+    const response = await fetch(`http://localhost:3001/notes/${userId}`)
     const json = await response.json();
     return json
 }
@@ -39,7 +39,7 @@ export const getNoteById = async (id: Number) => {
 
 
 export const createNote = async (
-    title: String, content: String, createdAt: String
+    title: String, content: String, createdAt: String, userId: Number
   ) => {
     const response = await fetch(CREATE_NOTE, {
       method: "POST",
@@ -47,7 +47,7 @@ export const createNote = async (
         "Content-Type": "application/json",
       },
   
-      body: JSON.stringify({ title: title, content: content, createdAt: createdAt }),
+      body: JSON.stringify({ title: title, content: content, createdAt: createdAt, userId: userId }),
     });
     const json = await response.json();
     return json;

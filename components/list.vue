@@ -5,9 +5,9 @@
         <div class="rounded-2xl h-12 flex flex-row space-x-2 justify-between  w-[60%] ">
 
             <div class="flex flex-row  space-x-4" >
-                <img :src="addnote" alt="add note" class="w-10 border border-white/45 rounded-lg cursor-pointer p-2 hover:bg-green-900 hover:scale-125" 
+                <img :src="addnote" alt="add note" class="w-12 border border-white/45 rounded-lg cursor-pointer p-2 hover:bg-green-900 hover:scale-125" 
                 @click="newNote" >
-                <img :src="sortup" alt="sort note" class="w-10 border border-white/45 rounded-lg cursor-pointer hover:bg-green-900 hover:scale-125" @click="sortnotes" 
+                <img :src="sortup" alt="sort note" class="w-12 border border-white/45 rounded-lg cursor-pointer hover:bg-green-900 hover:scale-125" @click="sortnotes" 
                     :class="desc ? 'rotate-180' : ''"
                 >
             </div>
@@ -35,7 +35,7 @@
         </div>
 
         <div v-else class="w-full items-center justify-center flex flex-col space-y-4">
-            <div v-for="note in notes.filter((not) => not.title.toLowerCase().includes(searchdata) || not.content?.includes(searchdata))" 
+            <div v-for="note in notes.filter((not) => not.title.toLowerCase().includes(searchdata.toLowerCase()) || not.content?.includes(searchdata))" 
                 class="w-full items-center justify-center flex flex-row"  @click="newNoteSelected(note)"   >
                 <noteCard :id="note.id"  :title="note.title" :content="note.content" :created="note.createdAt" :updated="note.updatedAt"
                 @delete="updateList" @complete="updateList" ></noteCard>
